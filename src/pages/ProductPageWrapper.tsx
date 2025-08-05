@@ -8,7 +8,7 @@ import type { Producto } from "../types/producto"
 export default function ProductPageWrapper() {
   const location = useLocation()
   const navigate = useNavigate()
-  const [carrito, setCarrito] = useState<ItemCarrito[]>([])
+  const [ setCarrito] = useState<ItemCarrito[]>([])
   const [isCartOpen, setIsCartOpen] = useState(false)
 
   const producto: Producto | undefined = location.state?.producto
@@ -27,8 +27,6 @@ export default function ProductPageWrapper() {
       <ProductPage
         producto={producto}
         onVolverHome={() => navigate("/")}
-        onAgregarAlCarrito={handleAgregarAlCarrito}
-        cantidadCarrito={carrito.length}
         onAbrirCarrito={() => setIsCartOpen(true)}
       />
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
