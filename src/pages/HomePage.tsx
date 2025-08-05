@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Heart, ShoppingCart, Star, Search } from "lucide-react"
+import { Heart,  Star, Search } from "lucide-react"
 import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
 import { Card, CardContent } from "../components/ui/card"
@@ -19,17 +19,12 @@ export default function HomePage() {
   const [productos, setProductos] = useState<Producto[]>([])
   const [busqueda, setBusqueda] = useState("")
   const [categoriaFiltro, setCategoriaFiltro] = useState("Todos")
-  const { cantidadTotal } = useCarrito()
   const [error, setError] = useState<string | null>(null)
   const [cargando, setCargando] = useState(false)
   const navigate = useNavigate()
   const [isCartOpen, setIsCartOpen] = useState(false)
 
-  const onAbrirCarrito = () => {
-    setIsCartOpen(true)
-  }
-
-
+ 
 
   useEffect(() => {
     const obtenerProductos = async () => {
