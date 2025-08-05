@@ -9,7 +9,6 @@ import { Input } from "../components/ui/input"
 import type { Producto } from "../types/producto"
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
-import { useCarrito } from "../context/CarritoContext"
 import CartDrawer from "../components/cart-drawer"
 import Header from "../components/Header"
 

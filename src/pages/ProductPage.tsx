@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Heart, ShoppingCart, Star, Minus, Plus, Truck, Shield, RotateCcw, ArrowLeft } from "lucide-react"
+import { Heart, ShoppingCart, Star, Minus, Plus, Truck, Shield, RotateCcw } from "lucide-react"
 import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
 import { Card } from "../components/ui/card"
@@ -25,7 +25,7 @@ export default function ProductPage({
   onVolverHome,
   onAbrirCarrito,
 }: ProductPageProps) {
-  const { cantidadTotal, agregar } = useCarrito()
+  const { agregar } = useCarrito()
   const [imagenSeleccionada, setImagenSeleccionada] = useState(0)
   const [colorSeleccionado, setColorSeleccionado] = useState(0)
   const [tallaSeleccionada, setTallaSeleccionada] = useState("")
@@ -52,7 +52,8 @@ export default function ProductPage({
     imagen: producto.imagenes[0],
   }
 
-  agregar({ ...item, carritoId: Date.now() })
+  agregar({ ...item, carritoId: Date.now().toString() })
+
 
   Swal.fire({
     icon: "success",

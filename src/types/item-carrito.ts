@@ -1,6 +1,6 @@
 export interface ItemCarrito {
   carritoId: string
-  productoId: number
+  productoId: string
   nombre: string
   precio: number
   color: string
