@@ -4,8 +4,8 @@ import type { ItemCarrito } from "../types/item-carrito" // ajusta la ruta
 type CarritoContextType = {
   items: ItemCarrito[]
   agregar: (item: ItemCarrito) => void
-  eliminar: (carritoId: number) => void
-  actualizarCantidad: (carritoId: number, cantidad: number) => void
+  eliminar: (carritoId: string) => void
+  actualizarCantidad: (carritoId: string, cantidad: number) => void
   vaciar: () => void
   cantidadTotal: number
 }
@@ -29,11 +29,11 @@ export const CarritoProvider = ({ children }: { children: React.ReactNode }) => 
     })
   }
 
-  const eliminar = (carritoId: number) => {
+  const eliminar = (carritoId: string) => {
     setItems(prev => prev.filter(p => p.carritoId !== carritoId))
   }
 
-  const actualizarCantidad = (carritoId: number, cantidad: number) => {
+  const actualizarCantidad = (carritoId: string, cantidad: number) => {
     setItems(prev =>
       prev.map(p =>
         p.carritoId === carritoId ? { ...p, cantidad } : p
